@@ -120,5 +120,29 @@ namespace Algorithms
             Console.Write(node.value + "\n");
             inOrder(node.right);
         }
+
+        public void levelOrderTraversalReverse(Node root)
+        {
+            Queue<Node> queue = new Queue<Node>();
+            Stack<Node> stack = new Stack<Node>();
+
+            queue.Enqueue(root);
+
+            while(queue.Count != 0)
+            {
+                Node node = queue.Dequeue();
+                stack.Push(node);
+
+                if (node.left != null)
+                    queue.Enqueue(node.left);
+                if (node.right != null)
+                    queue.Enqueue(node.right);                
+            }
+
+            while(stack.Count != 0)
+            {
+                Console.Write(stack.Pop().value + " ");
+            }
+        }
     }
 }

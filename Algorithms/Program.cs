@@ -16,6 +16,7 @@ namespace Algorithms
             binaryTree.preOrder(binaryTree.Root);
             binaryTree.inOrder(binaryTree.Root);
             binaryTree.postOrder(binaryTree.Root);
+            binaryTree.levelOrderTraversalReverse(binaryTree.Root);
         }
     }
 }
