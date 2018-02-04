@@ -107,7 +107,7 @@ namespace Algorithms
         {
             if (node == null)
                 return;
-            Console.Write(node.value + "\n");
+            Console.Write(node.value + " ");
             preOrder(node.left);
             preOrder(node.right);
         }
@@ -117,7 +117,7 @@ namespace Algorithms
             if (node == null)
                 return;
             inOrder(node.left);
-            Console.Write(node.value + "\n");
+            Console.Write(node.value + " ");
             inOrder(node.right);
         }
 
@@ -143,6 +143,37 @@ namespace Algorithms
             {
                 Console.Write(stack.Pop().value + " ");
             }
+        }
+
+        public Node CreateBinaryTree(int[] preOrder, int[] inOrder, int start, int end, ref int preOrderStart)
+        {
+
+            if(start == end)
+            {
+                preOrderStart--;
+                return null;
+            }
+            if (preOrderStart >= preOrder.Length)
+                return null;
+
+            var root = preOrder[preOrderStart];
+
+
+            for(int i = start; i < end; i++)
+            {
+                if(inOrder[i] == root)
+                {
+                    preOrderStart++;
+                    var left = CreateBinaryTree(preOrder, inOrder, start, i, ref preOrderStart);
+                    preOrderStart++;
+                    var right = CreateBinaryTree(preOrder, inOrder, i+1 , end, ref preOrderStart);
+
+                    var node = new Node(root,left,right);
+                    return node;
+                }
+            }
+
+            return null;
         }
     }
 }
