@@ -4,3 +4,10 @@ c:\users\subarth\documents\visual studio 2015\Projects\Algorithms\Algorithms\bin
 c:\users\subarth\documents\visual studio 2015\Projects\Algorithms\Algorithms\obj\Debug\Algorithms.csprojResolveAssemblyReference.cache
 c:\users\subarth\documents\visual studio 2015\Projects\Algorithms\Algorithms\obj\Debug\Algorithms.exe
 c:\users\subarth\documents\visual studio 2015\Projects\Algorithms\Algorithms\obj\Debug\Algorithms.pdb
+D:\projects\Algo\algorithm\Algorithms\bin\Debug\Algorithms.exe.config
+D:\projects\Algo\algorithm\Algorithms\bin\Debug\Algorithms.exe
+D:\projects\Algo\algorithm\Algorithms\bin\Debug\Algorithms.pdb
+D:\projects\Algo\algorithm\Algorithms\obj\Debug\Algorithms.csprojResolveAssemblyReference.cache
+D:\projects\Algo\algorithm\Algorithms\obj\Debug\Algorithms.csproj.CoreCompileInputs.cache
+D:\projects\Algo\algorithm\Algorithms\obj\Debug\Algorithms.exe
+D:\projects\Algo\algorithm\Algorithms\obj\Debug\Algorithms.pdb
