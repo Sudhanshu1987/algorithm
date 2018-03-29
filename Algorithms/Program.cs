@@ -8,15 +8,18 @@ namespace Algorithms
 {
     class Program
     {
+
+        private static long[] nodeWeights;
+
         public static void Main(string[] args)
         {
-            var numOfInputs = Int64.Parse(Console.ReadLine());
+            var numOfNodes = Int64.Parse(Console.ReadLine());
 
             var nodeWeightsString = Console.ReadLine().Split(' ');
 
-            long[] nodeWeights = new long[numOfInputs];
+            nodeWeights = new long[numOfNodes];
 
-            List<long>[] adjacencyList = new List<long>[numOfInputs];
+            List<long>[] adjacencyList = new List<long>[numOfNodes];
 
             int i = 0;
 
@@ -25,7 +28,7 @@ namespace Algorithms
                 nodeWeights[i++] = Int64.Parse(weight);
             }
 
-            for(int j = 0; j < numOfInputs; j++)
+            for(int j = 0; j < numOfNodes - 1; j++)
             {
                 var edge = Console.ReadLine();
                 var edgeArrayString = edge.Split(' ');
@@ -37,6 +40,7 @@ namespace Algorithms
                 if(list == null)
                 {
                     list = new List<long>();
+                    adjacencyList[source - 1] = list;
                 }
 
                 list.Add(target - 1);
@@ -46,9 +50,12 @@ namespace Algorithms
                 if (list == null)
                 {
                     list = new List<long>();
+                    adjacencyList[target - 1] = list;
                 }
 
                 list.Add(source - 1);
+
+
             }
 
             int choosenEdges = 0;
@@ -59,12 +66,16 @@ namespace Algorithms
                 var list = adjacencyList[source];
                 foreach(var vertex in list)
                 {
+                    if(vertex < source)
+                        continue;
                     if(EqualTreeOR(adjacencyList,source, vertex))
                     {
                         choosenEdges++;
                     }
                 }
             }
+
+            Console.WriteLine(choosenEdges);
         }
 
         private static bool EqualTreeOR(List<long>[] adjacencyList, long source, long target)
@@ -87,11 +98,11 @@ namespace Algorithms
                     if (node == vertexToAvoid && startingVertex == source || visitedNodes[node] == true)
                         continue;
                     visitedNodes[node] = true;
-                    treeOr = treeOr | node;
                     treeOr = treeOr | CalculateTreeOr(adjacencyList, node, startingVertex, vertexToAvoid, visitedNodes);
                 }
             }
 
+            treeOr = treeOr | nodeWeights[source];
             return treeOr;
         }
     }
